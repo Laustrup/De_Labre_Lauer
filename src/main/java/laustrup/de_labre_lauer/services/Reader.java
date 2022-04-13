@@ -6,9 +6,7 @@ import laustrup.de_labre_lauer.repositories.CommonAttributes;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Reader {
@@ -58,12 +56,9 @@ public class Reader {
     }
 
     private LauPost createLauPost(String[] line) throws Exception {
-        List<String> images = new ArrayList<>();
-        for (int i = 4; i < line.length;i++) {images.add(line[i]);}
-
         try {
             LocalDate date = LocalDate.parse(line[3], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            return new LauPost(line[0],line[1],line[2],date,images);
+            return new LauPost(line[0],line[1],line[2],date,line[4]);
         }
         catch (Exception e) {
             throw e;

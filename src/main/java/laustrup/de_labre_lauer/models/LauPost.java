@@ -5,41 +5,32 @@ import java.util.List;
 
 public class LauPost {
 
-    private String title,content, author;
+    private String title,content, author, imageLocation;
     private LocalDate timeStamp;
-    private List<String> imageLocations;
 
     // Constructor for writing to file
-    public LauPost(String title, String content, String author, List<String> imageLocations) {
+    public LauPost(String title, String content, String author, String imageLocation) {
         this.title = title;
         this.content = content;
         this.author = author;
-        this.imageLocations = imageLocations;
+        this.imageLocation = imageLocation;
 
         timeStamp = LocalDate.now();
     }
 
     // Constructor for reading from file
-    public LauPost(String title, String content, String author, LocalDate timeStamp, List<String> imageLocations) {
+    public LauPost(String title, String content, String author, LocalDate timeStamp, String imageLocation) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.timeStamp = timeStamp;
-        this.imageLocations = imageLocations;
+        this.imageLocation = imageLocation;
     }
 
     public String getTitle() {return title;}
     public String getContent() {return content;}
     public String getAuthor() {return author;}
     public LocalDate getTimeStamp() {return timeStamp;}
-    public List<String> getImageLocations() {return imageLocations;}
-    public String getImageLocationsAsString() {
-        String locations = new String();
+    public String getImageLocation() {return imageLocation;}
 
-        for (int i = 0; i < imageLocations.size();i++) {
-            locations += imageLocations.get(i);
-        }
-
-        return locations;
-    }
 }

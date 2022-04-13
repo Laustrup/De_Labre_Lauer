@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!-- Head fragment -->
+<head th:replace="src/main/resources/templates/fragments/head.html"></head>
+
 <body>
 
+    <!-- Header fragment -->
+    <header th:replace="src/main/resources/templates/fragments/header.html"></header>
+
+    <main>
+        <!-- Create form fragment -->
+        <section th:replace="src/main/resources/templates/fragments/create_form"></section>
+
+        <!-- Dashboard is rendered with javascript -->
+        <section id="dashboard"></section>
+    </main>
+
 </body>
+
+<!-- Javascript rendering fragment -->
+<div th:replace="src/main/resources/templates/fragments/javascript_rendering"></div>
+
 </html>
