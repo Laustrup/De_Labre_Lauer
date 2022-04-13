@@ -3,6 +3,7 @@ async function createPost() {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
     const author = document.getElementById("author").value;
+    // TODO
     const image = document.getElementById("image").value;
 
     const post = {
@@ -15,7 +16,9 @@ async function createPost() {
             title: title,
             content: content,
             author: author,
-            image: image
+            imageLocation: image
             })
     }
+    await fetch("https://laustrup.github.io/laupost",post);
+    renderPosts();
 }
