@@ -11,20 +11,25 @@ public class Writer {
 
     public LauPost write(LauPost post) {
 
-        try {
-            FileWriter writer = new FileWriter(LocationMap.getLauBoxLocation());
-            writer.write(post.getTitle() + "|" +
-                            post.getContent() + "|" +
-                            post.getAuthor() + "|" +
-                            post.getTimeStamp() + "|" +
-                            post.getImageLocationsAsString() + "\n");
-            writer.close();
-        }
-        catch (Exception e) {
-            Printer.printException("Exception caught at writing to LauBox.csv...",e);
-            return null;
-        }
+        if (!(post.getTitle().contains("|")||post.getContent().contains("|")||
+                post.getAuthor().contains("|")||post.getImageLocationsAsString().contains("|"))) {
+            try {
+                FileWriter writer = new FileWriter(LocationMap.getLauBoxLocation());
+                writer.write(post.getTitle() + "|" +
+                                post.getContent() + "|" +
+                                post.getAuthor() + "|" +
+                                post.getTimeStamp() + "|" +
+                                post.getImageLocationsAsString() + "\n");
+                writer.close();
+            }
+            catch (Exception e) {
+                Printer.printException("Exception caught at writing to LauBox.csv...",e);
+                return null;
+            }
 
-        return reader.read(post);
+            return reader.read(post);
+        }
+        Printer.printErr("Something contained the character | ...");
+        return null;
     }
 }
