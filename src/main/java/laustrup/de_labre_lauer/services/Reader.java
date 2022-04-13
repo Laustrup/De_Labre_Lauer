@@ -1,7 +1,7 @@
 package laustrup.de_labre_lauer.services;
 
 import laustrup.de_labre_lauer.models.LauPost;
-import laustrup.de_labre_lauer.repositories.LocationMap;
+import laustrup.de_labre_lauer.repositories.CommonAttributes;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -16,11 +16,11 @@ public class Reader {
     public LauPost read(LauPost post) {
 
         try {
-            Scanner lauBox = new Scanner(new File(LocationMap.getLauBoxLocation()));
+            Scanner lauBox = new Scanner(new File(CommonAttributes.getLauBoxLocation()));
 
             lauBox.nextLine();
             while (lauBox.hasNextLine()) {
-                String[] line = lauBox.nextLine().split("|");
+                String[] line = lauBox.nextLine().split(CommonAttributes.getSplitRegex());
                 if (line[0].equals(post.getTitle())&&line[1].equals(post.getContent())&&line[2].equals(post.getAuthor())) {
                     return createLauPost(line);
                 }
@@ -40,11 +40,11 @@ public class Reader {
         LinkedList<LauPost> posts = new LinkedList<>();
 
         try {
-            Scanner lauBox = new Scanner(new File(LocationMap.getLauBoxLocation()));
+            Scanner lauBox = new Scanner(new File(CommonAttributes.getLauBoxLocation()));
 
             lauBox.nextLine();
             while (lauBox.hasNextLine()) {
-                posts.add(createLauPost(lauBox.nextLine().split("|")));
+                posts.add(createLauPost(lauBox.nextLine().split(CommonAttributes.getSplitRegex())));
             }
             if (posts.size()!=0) {return posts;}
         }
