@@ -22,6 +22,6 @@ async function createPost() {
             imageLocation: image
             })
     }
-    await fetch("https://laustrup.github.io/laupost",post);
+    await fetch("https://laustrup.github.io/question",post);
     renderPosts();
 }

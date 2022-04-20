@@ -1,7 +1,7 @@
 renderPosts();
 
 async function renderPosts() {
-    const response = await fetch("https://laustrup.github.io/lauposts");
+    const response = await fetch("https://laustrup.github.io/questions");
     const posts = await response.json();
     renderHTML(posts);
 }

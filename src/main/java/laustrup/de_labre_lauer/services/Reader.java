@@ -1,6 +1,6 @@
 package laustrup.de_labre_lauer.services;
 
-import laustrup.de_labre_lauer.models.LauPost;
+import laustrup.de_labre_lauer.models.Question;
 import laustrup.de_labre_lauer.repositories.CommonAttributes;
 
 import java.io.File;
@@ -9,9 +9,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import static laustrup.de_labre_lauer.repositories.CommonAttributes.getBufferedImage;
+
 public class Reader {
 
-    public LauPost read(LauPost post) {
+    public Question read(Question question) {
 
         try {
             Scanner lauBox = new Scanner(new File(CommonAttributes.getLauBoxLocation()));
@@ -19,8 +21,8 @@ public class Reader {
             lauBox.nextLine();
             while (lauBox.hasNextLine()) {
                 String[] line = lauBox.nextLine().split(CommonAttributes.getSplitRegex());
-                if (line[0].equals(post.getTitle())&&line[1].equals(post.getContent())&&line[2].equals(post.getAuthor())) {
-                    return createLauPost(line);
+                if (line[0].equals(question.getTitle())&&line[1].equals(question.getContent())&&line[2].equals(question.getAuthor())) {
+                    return createQuestion(line);
                 }
             }
             lauBox.close();
@@ -30,19 +32,19 @@ public class Reader {
             return null;
         }
 
-        Printer.printErr("Couldn't find " + post.getTitle() + " in LauBox...");
+        Printer.printErr("Couldn't find " + question.getTitle() + " in LauBox...");
         return null;
     }
 
-    public LinkedList<LauPost> readAll() {
-        LinkedList<LauPost> posts = new LinkedList<>();
+    public LinkedList<Question> readAll() {
+        LinkedList<Question> posts = new LinkedList<>();
 
         try {
             Scanner lauBox = new Scanner(new File(CommonAttributes.getLauBoxLocation()));
 
             lauBox.nextLine();
             while (lauBox.hasNextLine()) {
-                posts.add(createLauPost(lauBox.nextLine().split(CommonAttributes.getSplitRegex())));
+                posts.add(createQuestion(lauBox.nextLine().split(CommonAttributes.getSplitRegex())));
             }
             if (posts.size()!=0) {return posts;}
         }
@@ -55,13 +57,11 @@ public class Reader {
         return null;
     }
 
-    private LauPost createLauPost(String[] line) throws Exception {
+    private Question createQuestion(String[] line) throws Exception {
         try {
             LocalDate date = LocalDate.parse(line[3], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            return new LauPost(line[0],line[1],line[2],date,line[4]);
+            return new Question(line[0],line[1],line[2],date,getBufferedImage(line[4]));
         }
-        catch (Exception e) {
-            throw e;
-        }
+        catch (Exception e) {throw e;}
     }
 }
