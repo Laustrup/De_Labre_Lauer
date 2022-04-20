@@ -1,24 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
-<!-- Head fragment -->
-<head th:replace="src/main/resources/templates/fragments/head.html"></head>
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Style -->
+    <link href="src/main/resources/static/styles/sheets/global.css" rel="stylesheet">
+
+    <!-- Head configure -->
+    <title>De Labre Lauer - Brevkasse</title>
+    <link href="src/main/resources/static/images/shortcut_icon.jpg" rel="shortcut icon" type="image/jpg">
+</head>
 
 <body>
 
-    <!-- Header fragment -->
-    <header th:replace="src/main/resources/templates/fragments/header.html"></header>
+    <header>
+        <h1>De Labre Lauers laukasse</h1>
+        <h3>Smid et spørgsmål eller kommentar op og vi ville drøfte det i en af vores episoder.</h3>
+    </header>
 
     <main>
-        <!-- Create form fragment -->
-        <section th:replace="src/main/resources/templates/fragments/create_form"></section>
+        <section class="create_form_section">
+
+            <label for="author">Hvem er du? (Anonymt navn ok):</label>
+            <input type="text" id="author" placeholder="Dig..." required>
+
+            <label for="title">Skrive en titel:</label>
+            <input type="text" id="title" placeholder="Titel..." required>
+
+            <label for="content">Skrive noget:</label>
+            <input type="text" id="content" placeholder="Noget..." required>
+
+            <label for="image">Lyst til at uploade et billede?</label>
+            <input type="file" id="image">
+
+            <button type="button" onclick="createPost()">Smid lortet op!</button>
+        </section>
 
         <!-- Dashboard is rendered with javascript -->
         <section id="dashboard"></section>
     </main>
 
-    <!-- Javascript rendering fragment -->
-    <div th:replace="src/main/resources/templates/fragments/javascript_rendering"></div>
+    <script src="src/main/resources/static/javascripts/post.js" type="text/javascript"></script>
+    <script src="src/main/resources/static/javascripts/dashboard.js" type="text/javascript"></script>
 </body>
 
 
