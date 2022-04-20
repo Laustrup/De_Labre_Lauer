@@ -3,6 +3,10 @@
     justify-content: center;
 }
 
+body {
+    background-image: url("../images/background.jpg");
+}
+
 header{
 
     border-radius: 15px;

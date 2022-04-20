@@ -6,6 +6,7 @@
 
     <!-- Style -->
     <link href="src/main/resources/static/styles/sheets/global.css" rel="stylesheet">
+    <link href="src/main/resources/static/styles/sheets/buttons.css" rel="stylesheet">
 
     <!-- Head configure -->
     <title>De Labre Lauer - Brevkasse</title>
@@ -15,8 +16,8 @@
 <body>
 
     <header>
-        <h1>De Labre Lauers laukasse</h1>
-        <h3>Smid et spørgsmål eller kommentar op og vi ville drøfte det i en af vores episoder.</h3>
+        <h1>De Labre Lauers Laukasse</h1>
+        <h3>Smid et spørgsmål eller kommentar op, og vi ville drøfte det i en af vores episoder.</h3>
     </header>
 
     <main>
@@ -27,16 +28,16 @@
             <label for="author">Hvem er du*? (Anonymt navn ok):</label>
             <input type="text" id="author" placeholder="Dig..." required>
 
-            <label for="title">Skrive en titel*:</label>
+            <label for="title">Titel*:</label>
             <input type="text" id="title" placeholder="Titel..." required>
 
-            <label for="content">Skrive noget*:</label>
+            <label for="content">Stil et spørgsmål*:</label>
             <input type="text" id="content" placeholder="Noget..." required>
 
             <label for="image">Lyst til at uploade et billede?</label>
             <input type="file" id="image">
 
-            <p>Alle felter med * er krævet</p>
+            <p>Alle felter med * er påkrævet</p>
 
             <button type="button" onclick="createPost()">Smid lortet op!</button>
         </section>
