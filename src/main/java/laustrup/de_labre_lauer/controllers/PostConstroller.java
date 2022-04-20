@@ -5,14 +5,12 @@ import laustrup.de_labre_lauer.services.Reader;
 import laustrup.de_labre_lauer.services.Writer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class PostConstroller {
 
     private Reader reader = new Reader();
