@@ -10,7 +10,10 @@ async function createPost() {
         method: "POST",
         headers: {
             "Accept": "application.json",
-            "Content-Type": "application.json"
+            "Content-Type": "application.json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization"
         },
         body: JSON.stringify({
             title: title,
