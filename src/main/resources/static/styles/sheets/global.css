@@ -11,24 +11,15 @@ body {
 
 header{
 
-    border-radius: 15px;
-    border: 2px solid darkslategray;
-
-    background-image: linear-gradient(to bottom right, gray, beige);
+    display: flex;
 
     margin-bottom: 40px;
-    margin-top: 40px;
+    padding: 30px 10%;
 
-    padding: 10px;
+    background-color: #24252A;
+    font-size: 18px;
 
-    font-size: 17px;
-    text-align: center;
-
-    width: 780px;
-
-    color: black;
-
-    box-shadow: 5px 5px gray;
+    color: purple;
 }
 
 main{
@@ -48,9 +39,28 @@ main{
     box-shadow: 5px 5px gray
 }
 
+footer {
+
+    /* Puts the footer at the bottom */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    height: auto;
+
+    background-color: #000;
+    background-color: #24252A;
+    color: purple;
+}
+
 section {
     /* Order and display */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+ul {list-style: none;}

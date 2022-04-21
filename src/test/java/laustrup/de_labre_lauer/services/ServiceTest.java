@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
+import java.util.Optional;
 
 import static laustrup.de_labre_lauer.repositories.CommonAttributes.getBufferedImage;
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,7 +31,7 @@ class ServiceTest {
         // Arrange
         Question expected = new Question(title, content, author, timeStamp, null);
         try {
-            expected = new Question(title, content, author, timeStamp, getBufferedImage(imageLocation));
+            expected = new Question(title, content, author, timeStamp, Optional.of(getBufferedImage(imageLocation)));
         } catch (Exception e) {
             Printer.printException("Couldn't create expected...", e);
         }

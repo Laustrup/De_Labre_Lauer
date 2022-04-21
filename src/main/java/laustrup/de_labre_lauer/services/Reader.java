@@ -7,6 +7,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
+import java.util.Optional;
 import java.util.Scanner;
 
 import static laustrup.de_labre_lauer.repositories.CommonAttributes.getBufferedImage;
@@ -59,8 +60,8 @@ public class Reader {
 
     private Question createQuestion(String[] line) throws Exception {
         try {
-            LocalDate date = LocalDate.parse(line[3], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            return new Question(line[0],line[1],line[2],date,getBufferedImage(line[4]));
+            return new Question(line[0],line[1],line[2],LocalDate.parse(line[3],
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd")),Optional.of(getBufferedImage(line[4])));
         }
         catch (Exception e) {throw e;}
     }

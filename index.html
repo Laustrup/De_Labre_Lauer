@@ -1,56 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
 
-    <!-- Style -->
-    <link href="src/main/resources/static/styles/sheets/global.css" rel="stylesheet">
-    <link href="src/main/resources/static/styles/sheets/buttons.css" rel="stylesheet">
+        <!-- Styles -->
+        <link href="src/main/resources/static/styles/sheets/global.css" rel="stylesheet">
+        <link href="src/main/resources/static/styles/sheets/buttons.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Head configure -->
-    <title>De Labre Lauer - Brevkasse</title>
-    <link href="src/main/resources/static/images/shortcut_icon.jpg" rel="shortcut icon" type="image/jpg">
-</head>
+        <!-- Head configure -->
+        <title>De Labre Lauer - Brevkasse</title>
+        <link href="src/main/resources/static/images/shortcut_icon.jpg" rel="shortcut icon" type="image/jpg">
+    </head>
 
-<body>
+    <body>
 
-    <header>
-        <h1>De Labre Lauers Laukasse</h1>
-        <h3>Smid et spørgsmål eller kommentar op, og vi ville drøfte det i en af vores episoder.</h3>
-    </header>
+        <header>
+            <h1>De Labre Lauers Laukasse</h1>
+            <h3>Smid et spørgsmål eller kommentar op, og vi ville drøfte det i en af vores episoder.</h3>
+        </header>
 
-    <main>
-        <section class="create_form_section">
+        <main>
+            <section class="create_form_section">
 
-            <h4>Lav et opslag</h4>
+                <h4>Lav et opslag</h4>
 
-            <label for="author">Hvem er du*? (Anonymt navn ok):</label>
-            <input type="text" id="author" placeholder="Dig..." required>
+                <label for="author">Hvem er du*? (Anonymt navn ok):</label>
+                <input type="text" id="author" placeholder="Dig..." required>
 
-            <label for="title">Titel*:</label>
-            <input type="text" id="title" placeholder="Titel..." required>
+                <label for="title">Titel*:</label>
+                <input type="text" id="title" placeholder="Titel..." required>
 
-            <label for="content">Stil et spørgsmål*:</label>
-            <input type="text" id="content" placeholder="Noget..." required>
+                <label for="content">Stil et spørgsmål*:</label>
+                <input type="text" id="content" placeholder="Noget..." required>
 
-            <label for="image">Lyst til at uploade et billede?</label>
-            <input type="file" id="image">
+                <label for="image">Lyst til at uploade et billede?</label>
+                <input type="file" id="image">
 
-            <p>Alle felter med * er påkrævet</p>
+                <p>Alle felter med * er påkrævet</p>
 
-            <button type="button" onclick="createPost()">Smid lortet op!</button>
-        </section>
+                <button type="button" onclick="createPost()">Smid lortet op!</button>
+            </section>
 
-        <!-- Dashboard is rendered with javascript -->
-        <section id="dashboard_frame">
-            <section id="dashboard"></section>
-        </section>
-    </main>
+            <!-- Dashboard is rendered with javascript -->
+            <section id="dashboard_frame">
+                <section id="dashboard"></section>
+            </section>
+        </main>
 
-    <script src="src/main/resources/static/javascripts/post.js" type="text/javascript"></script>
-    <script src="src/main/resources/static/javascripts/dashboard.js" type="text/javascript"></script>
-</body>
+        <footer>
+            <table>
+                <tbody><tr class="footer_row">
+                    <th>Kontact info</th>
+                </tr>
+                <tr class="footer_row">
+                    <td>Email: laustslaustede@gmail.com</td>
+                </tr>
+                <tr class="footer_row">
+                    <td>Telefon: +45 60548098</td>
+                </tr>
+                <tr class="footer_row">
+                    <td>Address: <a href="https://www.google.com/maps?q=kobbelv%C3%A6nget+57&amp;sxsrf=APq-WBsvK4CL56Col-21-ZoGszp55BZcrQ:1647257661170&amp;iflsig=AHkkrS4AAAAAYi82TaE3BrHUS0adaB2C4FwWO4brLccl&amp;uact=5&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDICCCY6BwgjEOoCECc6BAgjECc6DgguEIAEELEDEMcBEK8BOgUILhCABDoICAAQgAQQsQM6EQguEIAEELEDEMcBEKMCENQCOggILhCABBDUAjoLCC4QsQMQxwEQrwE6CwguEIAEEMcBEK8BOggILhCABBCxAzoFCAAQsQM6BggAEBYQHlCeB1j7HWCYJ2gBcAB4AIABhAGIAbgHkgEDNC41mAEAoAEBsAEK&amp;um=1&amp;ie=UTF-8&amp;sa=X&amp;ved=2ahUKEwjl3cSDwcX2AhWDu6QKHbmBDEMQ_AUoAXoECAEQAw">
+                        Kobbelvænget 57, 2. tv. 2700 Brønshøj.</a>
+                    </td>
+                </tr>
+
+                </tbody></table>
+
+            <section id="footer_detail_section">
+                <div id="details_of_website">
+                    <h4>Skabt 2022</h4>
+                    <p>Denne hjemmeside er skabt via. et github repository og hosted gennem github pages.</p>
+                    <p>Koden til denne hjemmeside kan findes på <a href="https://github.com/Laustrup/De_Labre_Lauer">https://github.com/Laustrup/De_Labre_Lauer.</a></p>
+                </div>
+            </section>
+
+            <ul id="links">
+                <li><p>Links:</p></li>
+                <li>
+                    <a href="https://www.facebook.com/DeLabreLauer/?show_switched_toast=1&show_invite_to_follow=0&show_switched_tooltip=0&show_podcast_settings=0&show_community_transition=0&show_community_review_changes=0">
+                        <i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://open.spotify.com/show/6T5IWJGWyyNtk3rrFrHsXw"><i class="fa fa-spotify"></i></a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="src/main/resources/static/javascripts/post.js" type="text/javascript"></script>
+        <script src="src/main/resources/static/javascripts/dashboard.js" type="text/javascript"></script>
+    </body>
 
 
 </html>
